@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: trustvault-app
+    runtime: static
+    buildCommand: npm run build --workspace @trustvault/client
+    staticPublishPath: client/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://trustvault-api-0dl0.onrender.com
+
+  - type: web
+    name: trustvault-api
+    runtime: node
+    plan: free
+    buildCommand: npm run build --workspace @trustvault/server
+    startCommand: npm start --workspace @trustvault/server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: TRUSTED_FRONTEND_ORIGIN
+        value: https://trustvault-app-1i2l.onrender.com

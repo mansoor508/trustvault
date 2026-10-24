@@ -1,0 +1,21 @@
+# Normalize line endings so a Windows checkout and a Linux CI checkout produce
+# identical migration checksums and diffs.
+* text=auto eol=lf
+
+*.sql text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+package-lock.json linguist-generated=true
+client/dist/** linguist-generated=true
+server/dist/** linguist-generated=true

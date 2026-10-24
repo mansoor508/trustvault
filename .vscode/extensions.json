@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "vitest.explorer",
+    "humao.rest-client",
+    "ms-vscode.powershell"
+  ],
+  "unwantedRecommendations": []
+}

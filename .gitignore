@@ -1,0 +1,89 @@
+# ---------------------------------------------------------------------------
+# TrustVault .gitignore
+# Rule of thumb: anything that can identify a person, a machine or a secret
+# stays out of git. .env* files are ignored EXCEPT the *.example templates.
+# ---------------------------------------------------------------------------
+
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+jspm_packages/
+
+# Build output
+dist/
+dist-ssr/
+build/
+out/
+*.tsbuildinfo
+.vite/
+client/dist/
+
+# Environment files - keep templates only
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Local tooling caches
+.npm-cache/
+.cache/
+.eslintcache
+.prettier-cache/
+coverage/
+.vitest/
+
+# Private document storage (uploaded files must never enter the repo)
+/storage/
+/server/storage/
+uploads/
+*.upload
+!server/src/storage/
+
+# Local database dumps / exports
+*.sql.gz
+*.dump
+database/dumps/
+database/tmp/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa*
+id_ed25519*
+
+# OS noise
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor noise (shared VS Code config is intentionally committed)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Temp files
+tmp/
+temp/
+*.tmp
+*.bak

@@ -1,0 +1,36 @@
+{
+  "name": "trustvault",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TrustVault - secure document sharing for teams. Snovasys hackathon build.",
+  "license": "MIT",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently --kill-others --names api,web --prefix-colors cyan,magenta \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --workspace @trustvault/server",
+    "dev:client": "npm run dev --workspace @trustvault/client",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "npm run build --workspace @trustvault/server",
+    "build:client": "npm run build --workspace @trustvault/client",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test:server && npm run test:client",
+    "test:server": "npm run test --workspace @trustvault/server",
+    "test:client": "npm run test --workspace @trustvault/client",
+    "start": "npm run start --workspace @trustvault/server",
+    "migrate": "npm run migrate --workspace @trustvault/server",
+    "migrate:status": "npm run migrate:status --workspace @trustvault/server",
+    "migrate:dry": "npm run migrate:dry --workspace @trustvault/server",
+    "seed": "npm run seed --workspace @trustvault/server",
+    "promote:platform-admin": "npm run promote:platform-admin --workspace @trustvault/server --"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}
